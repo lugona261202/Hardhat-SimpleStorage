@@ -2,10 +2,12 @@ require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("./tasks/block-number");
 require("hardhat-gas-reporter");
+require("solidity-coverage");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
+const COINMARKETKEY_API_KEY = process.env.COINMARKETKEY_API_KEY;
 
 module.exports = {
   defaultNetwork: "hardhat",
@@ -20,5 +22,9 @@ module.exports = {
   },
   gasReporter: {
     enabled: true,
+    outputFile: "gas-report.txt",
+    noColors: true,
+    currency: "USD",
+    coinmarketcap: COINMARKETKEY_API_KEY,
   },
 };
