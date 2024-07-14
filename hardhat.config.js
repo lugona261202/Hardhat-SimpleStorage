@@ -17,4 +17,7 @@ module.exports = {
     // accounts : already placed by hardhat default
     chainId: 31337,
   },
+  gasReporter: {
+    enabled: true,
+  },
 };
